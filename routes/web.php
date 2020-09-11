@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/permission-denied','AdminController@permissionDenied')->name('nopermission');
+Route::get('language/{language}','Admin\LanguageController@index')->name('language.index');
+// admin
+Route::group(['prefix' => 'admin','middleware' => ['auth']],function(){
+    Route::group(['middleware' => ['admin']], function(){
+        Route::get('/','AdminController@index')->name('admin');
+    });
+});
