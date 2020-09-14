@@ -10,17 +10,18 @@
       <link rel="stylesheet" href="{{ asset('admins/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
       <!-- Font Awesome -->
       <link rel="stylesheet" href="{{ asset('admins/bower_components/font-awesome/css/font-awesome.min.css')}}">
-      <!-- Ionicons -->
-      <link rel="stylesheet" href="{{ asset('admins/bower_components/Ionicons/css/ionicons.min.css')}}">
       <!-- Theme style -->
       <link rel="stylesheet" href="{{asset('admins/dist/css/AdminLTE.min.css')}}">
       <link rel="stylesheet" href="{{ asset('admins/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
-      <link rel="stylesheet" href="{{asset('admins/plugins/timepicker/bootstrap-timepicker.min.css')}}">
-      <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
       <link rel="stylesheet" href="{{asset('admins/dist/css/skins/_all-skins.min.css')}}">
       <!-- Pace style -->
       <link rel="stylesheet" href="{{asset('admins/plugins/pace/pace.min.css')}}">
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
       <!-- Google Font -->
       <link rel="stylesheet"
          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -216,7 +217,6 @@
                      <i class="fa fa-table"></i> <span>User</span>
                      </a>
                   </li>
-
                   <!-- user -->
                </ul>
             </section>
@@ -247,18 +247,36 @@
       <script src="{{asset('admins/bower_components/jquery/dist/jquery.min.js')}}"></script>
       <!-- Bootstrap 3.3.7 -->
       <script src="{{ asset('admins/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-      <!-- PACE -->
-      <script src="{{ asset('admins/bower_components/PACE/pace.min.js')}}"></script>
       <!-- SlimScroll -->
       <script src="{{ asset('admins/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-      <!-- FastClick -->
-      <script src="{{ asset('admins/bower_components/fastclick/lib/fastclick.js')}}"></script>
       <!-- AdminLTE App -->
       <script src="{{ asset('admins/dist/js/adminlte.min.js')}}"></script>
       <!-- AdminLTE for demo purposes -->
-      <script src="{{ asset('admins/dist/js/demo.js')}}"></script>
       <script src="{{ asset('admins/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
       <!-- page script -->
-      <script type="text/javascript" src="{{ asset('admins/js/datepicker.js')}}"></script>
+      <script type="text/javascript">
+         // To make Pace works on Ajax calls
+         $(document).ajaxStart(function () {
+            Pace.restart()
+         })
+         $('.ajax').click(function () {
+            $.ajax({
+               url: '#', success: function (result) {
+                  $('.ajax-content').html('<hr>Ajax Request Completed !')
+               }
+            })
+         })
+      </script>
+      <script type="text/javascript">
+            $( "#datepicker" ).datepicker({
+            format: "yyyy-mm-dd",
+            weekStart: 0,
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true,
+            rtl: true,
+            orientation: "bottom",
+            });
+      </script>
    </body>
 </html>
