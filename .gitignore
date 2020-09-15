@@ -22,8 +22,4 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 .phpintel
-public/admins/bower_components/
-public/admins/plugins/
-public/admins/dist/
-public/css/app.css
-public/js/app.js
+
