@@ -15,4 +15,14 @@
 #image_edit_course{
     width: 200px;
     height: 200px;
+    display: inline;
+}
+#form_index_subject{
+    height: 50px;
+    width: 50px;
+    display: inline;
+}
+#img_index_subject{
+    height: 50px;
+    width: 50px;
 }

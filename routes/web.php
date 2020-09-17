@@ -29,4 +29,5 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']],function(){
     });
     Route::resource('users', 'Admin\UserController');
     Route::resource('courses', 'Admin\CourseController',['except' => ['show']]);
+    Route::resource('subject','Admin\SubjectController',['except' => ['show']]);
 });
