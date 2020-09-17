@@ -28,4 +28,5 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']],function(){
         Route::get('/','AdminController@index')->name('admin');
     });
     Route::resource('users', 'Admin\UserController');
+    Route::resource('courses', 'Admin\CourseController',['except' => ['show']]);
 });
