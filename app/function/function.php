@@ -28,4 +28,9 @@ function getDataCourseFromRequest($request,&$data)
     $data['start_day'] = $request->start_day;
     $data['end_day'] = $request->end_day;
 }
+function getDataSubjectFromRequest($request,&$data)
+{
+    $data['name'] = $request->name;
+    $data['description'] = $request->description;
+}
 ?>
