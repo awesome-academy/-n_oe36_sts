@@ -20,4 +20,12 @@ function getDataUserFromRequest($request,&$data)
     $data['birthday'] = $request->birthday;
     $data['password'] = Hash::make($request->password);
 }
+function getDataCourseFromRequest($request,&$data)
+{
+    $data['name'] = $request->name;
+    $data['description'] = $request->description;
+    $data['duration'] = $request->duration;
+    $data['start_day'] = $request->start_day;
+    $data['end_day'] = $request->end_day;
+}
 ?>
